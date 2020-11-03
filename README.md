@@ -107,5 +107,5 @@ No license.
 
 Alexander Nederegger - alexander@nederegger.de
 
-Project Link: [https://github.com/alex1ned/travel_app](https://github.com/alex1ned/travel_app)
+Project Link: [https://github.com/alex1ned/travel_planner](https://github.com/alex1ned/travel_planner)
 
