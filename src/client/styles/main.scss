@@ -22,9 +22,22 @@ $h2Color: #334663;
 $footerTextColor: #736677;
 
 
-
-
 main {
     color: $mainTextColor;
-    height: 100px;
+    padding: 30px;
+}
+
+.upper-segment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+
+    .sections-upper {
+        width: 45%;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+    }
 }

@@ -23,8 +23,10 @@ $footerTextColor: #736677;
 
 
 // ------------------ MAIN ELEMENTS
-* {
-    font-size: 16px;
+*, body {
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+    line-height: 1.2em;
 }
 
 body {
@@ -33,12 +35,15 @@ body {
 
 h1 {
     color: $h1Color;
-    font-size: 2.5em;
+    font-size: 2.2em;
 }
 
 h2 {
     color: $h2Color;
-    font-size: 2em;
+    font-size: 1.8em;
+    height: 1em;
+    width: 100%;
+    border-bottom: 2px solid $h2Color;
 }
 
 button {

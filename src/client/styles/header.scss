@@ -14,7 +14,6 @@ $buttonColor: #334663;
 $buttonHover: #283850;
 $footerColor: #2d2b2e;
 
-
 // ----- Text Colors
 $mainTextColor: black;
 $h1Color: #251e2a;
@@ -23,7 +22,27 @@ $footerTextColor: #736677;
 
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $mainBackground;
     color: $mainTextColor;
     height: 100px;
+    border-bottom: 5px solid white;
+
+    h1.app-header {
+        margin-right: 1rem;
+        text-align: center;
+    }
+
+    i.fa-github {
+        color: $h1Color;
+        font-size: 2em;
+        margin-left: 1rem;
+        transition: color 0.2s ease-in;
+        
+        &:hover {
+            color: $buttonColor;
+        }
+    }
 }
