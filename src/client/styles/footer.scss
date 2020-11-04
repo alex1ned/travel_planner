@@ -1,0 +1,13 @@
+// ------------------ GLOBAL VARIABLES
+$footerColor: #2d2b2e;
+$footerTextColor: #736677;
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $footerColor;
+    color: $footerTextColor;
+    height: 100px;
+    font-size: 1.2em;
+}

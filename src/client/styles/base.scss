@@ -1,1 +1,58 @@
+// ------------------ GLOBAL VARIABLES
+// ----- Background Colors
+$mainBackground:  #b9abc3;
+$mainBackgroundLight: #d2c9d8;
+$mainBackgroundLighter: #ded8e3;
+$mainBackgroundDark: #a08dae;
+$mainBackgroundDarker: #947ea3;
 
+$mint:  #abc3b9;
+$blueGrey: #abb5c3;
+$beigeGrey: #c3b9ab;
+$greenGrey: #b5c3ab;
+$buttonColor: #334663;
+$buttonHover: #283850;
+$footerColor: #2d2b2e;
+
+
+// ----- Text Colors
+$mainTextColor: black;
+$h1Color: #251e2a;
+$h2Color: #334663;
+$footerTextColor: #736677;
+
+
+// ------------------ MAIN ELEMENTS
+* {
+    font-size: 16px;
+}
+
+body {
+    background-color: $mainBackgroundLighter;
+}
+
+h1 {
+    color: $h1Color;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: $h2Color;
+    font-size: 2em;
+}
+
+button {
+    background-color: $buttonColor;
+    color: $mainBackgroundLighter;
+    font-size: 1.5em;
+    height: 55px;
+    width: 200px;
+    border-radius: 0.6em;
+    border: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+    &:hover {
+        background-color: $buttonHover;
+        color: #6481ac;
+    }
+}
