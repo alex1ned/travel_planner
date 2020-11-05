@@ -20,7 +20,7 @@
         <main>
             <section class="upper-segment">
                 <!-- Section 1 -- Description -->
-                <section class="sections-upper">
+                <section id="description" class="sections-upper">
                     <h2>Description</h2>
                     <p>
                         This application allows you to submit the location
@@ -31,16 +31,42 @@
                 </section>
 
                 <!-- Section 2 -- Submission Form -->
-                <section class="sections-upper">
+                <section id="submission" class="sections-upper">
                     <h2>Submission Form</h2>
                     <!-- !!! Add form here (Location, start date, return date) -->
+                    <form>
+                        <!-- Location -->
+                        <div class="input-field">
+                            <p>Location:</p>
+                            <input type="text" value="" placeholder="Type in location ...">
+                        </div>
+
+                        <!-- Departure date -->
+                        <div class="input-field">
+                            <p>Departure date:</p>
+                            <input type="text" value="" placeholder="Type in date in format dd/mm/yyyy...">
+                        </div>
+
+                        <!-- Return date -->
+                        <div class="input-field">
+                            <p>Return date:</p>
+                            <input type="text" value="" placeholder="Type in date in format dd/mm/yyyy...">
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="submit-button">
+                            <button>
+                                <input class="submit" type="submit" value="Submit" />
+                            </button>
+                        </div>
+                    </form>
                 </section>
             </section>
         </main>
 
         <!-- ************************************ FOOTER -->
         <footer>
-            <div>&copy 2020 Alexander Nederegger   |   Udacity Front-End Development Capstone Project</div>
+            <div>&copy 2020 Alexander Nederegger   |   Udacity Front-End Development | Capstone Project</div>
         </footer>
     </body>
 </html>

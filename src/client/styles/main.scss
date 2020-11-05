@@ -32,12 +32,74 @@ main {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+    padding-bottom: 40px;
+    border-bottom: 3px solid $h2Color;
 
     .sections-upper {
         width: 45%;
 
         h2 {
             margin-bottom: 10px;
+        }
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+
+
+    .input-field {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p, input {
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            min-width: 300px;
+            font-size: 0.7em;
+            padding: 0.2em;
+            border: 3px solid $mainBackgroundDarker;
+        }
+    }
+
+    .submit-button {
+        display: flex;
+        justify-content: center;
+
+        input.submit {
+            background-color: inherit;
+            color: inherit;
+            font-size: 0.8em;
+        }
+    }
+}
+
+@media only screen and (max-width: 985px) {
+    .input-field input {
+        min-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .upper-segment {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+
+        .sections-upper {
+            width: 90%;
+        }
+
+        #submission {
+            margin-top: 40px;
         }
     }
 }
