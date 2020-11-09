@@ -35,11 +35,11 @@
                 <section id="submission" class="sections-upper">
                     <h2>Submission Form</h2>
                     <!-- !!! Add form here (Location, start date, return date) -->
-                    <form>
+                    <form onsubmit="return Client.handleSubmit(event)">
                         <!-- Location -->
                         <div class="input-field">
                             <p>Location:</p>
-                            <input class="valid" type="text" value="" placeholder="Type in name of city">
+                            <input id="location-input" class="valid" type="text" value="" placeholder="Type in name of city">
                         </div>
 
                         <!-- Departure date -->
@@ -47,7 +47,7 @@
                             <p>Departure date:</p>
                             <div class="calendar-container">
                                 <i class="fa fa-calendar"></i>
-                                <input class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                                <input id="departure-input" class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -56,14 +56,14 @@
                             <p>Return date:</p>
                             <div class="calendar-container">
                                 <i class="fa fa-calendar"></i>
-                                <input class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                                <input id="return-input" class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
                             </div>
                         </div>
 
                         <!-- Submit button -->
                         <div class="submit-button">
                             <button>
-                                <input class="submit" type="submit" value="Submit" />
+                                <input class="submit" type="submit" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)" />
                             </button>
                         </div>
                     </form>

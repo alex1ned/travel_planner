@@ -1,7 +1,7 @@
 // !!! ADD IMPORTS and EXPORTS HERE
 
-import { checkForName } from './js/nameChecker'
-import { handleSubmit } from './js/formHandler'
+import { handleSubmit } from './js/formHandler.js';
+import { validateForm } from './js/input_validation/formValidation.js';
 
 // Import styles
 import './styles/resets.scss';
@@ -11,10 +11,14 @@ import './styles/main.scss';
 import './styles/footer.scss';
 
 // IMPORT JS FILE
-
+// import './js/formHandler.js';
 
 
 // Export functions
+export {
+    handleSubmit,
+    validateForm
+};
 
 // Note: do not append functions directly to button but
 // use .addEventListener()
