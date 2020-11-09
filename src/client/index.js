@@ -2,6 +2,7 @@
 
 import { handleSubmit } from './js/formHandler.js';
 import { validateForm } from './js/input_validation/formValidation.js';
+import { postInput } from './js/post_input/postInput.js';
 
 // Import styles
 import './styles/resets.scss';
@@ -17,7 +18,8 @@ import './styles/footer.scss';
 // Export functions
 export {
     handleSubmit,
-    validateForm
+    validateForm,
+    postInput
 };
 
 // Note: do not append functions directly to button but
