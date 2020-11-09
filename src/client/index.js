@@ -10,6 +10,10 @@ import './styles/header.scss';
 import './styles/main.scss';
 import './styles/footer.scss';
 
+// IMPORT JS FILE
+
+
+
 // Export functions
 
 // Note: do not append functions directly to button but

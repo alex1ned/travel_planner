@@ -25,8 +25,11 @@ $footerTextColor: #736677;
 main {
     color: $mainTextColor;
     padding: 30px;
+    height: 80vh;
 }
 
+
+// --------------------------------- UPPER SEGMENT (INPUT)
 .upper-segment {
     display: flex;
     flex-direction: row;
@@ -56,10 +59,15 @@ form {
         flex-direction: row;
         justify-content: space-between;
 
-        p, input {
+        p, input, div {
             height: 30px;
             display: flex;
             align-items: center;
+        }
+
+        .calendar-container {
+            display: flex;
+            justify-content: right;
         }
 
         input {
@@ -68,6 +76,12 @@ form {
             padding: 0.2em;
             border: 3px solid $mainBackgroundDarker;
         }
+
+        .fa-calendar {
+            margin-right: 7px;
+            font-size: 1.0em;
+        }
+
     }
 
     .submit-button {
@@ -103,3 +117,40 @@ form {
         }
     }
 }
+
+
+
+// --------------------------------- LOWER SEGMENT (RESULTS)
+// --------- Placeholder
+.results-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+    
+    .results-placeholder {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        height: auto;
+        font-size: 1.5em;
+        text-align: center;
+        color: $mainBackgroundDarker;
+
+        p, i {
+            padding: 80px 0px 0px 0px;
+        }
+
+        i {
+            font-size: 1.9em;
+        }
+
+    }
+}
+
+// --------- Results if input was invalid
+
+// --------- Correct results
+
+

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Travel Planner | Udacity Front-End Development</title>
         
         <!-- Import fonts -->
@@ -25,8 +26,8 @@
                     <p>
                         This application allows you to submit the location
                         you will be travelling to as well as your departure-
-                        and return dates. Upon submitting the details, the app
-                        will show you basic details about your trip.
+                        and return dates. The app will show you basic details
+                        about your trip upon submitting the form.
                     </p>
                 </section>
 
@@ -38,19 +39,25 @@
                         <!-- Location -->
                         <div class="input-field">
                             <p>Location:</p>
-                            <input type="text" value="" placeholder="Type in location ...">
+                            <input type="text" value="" placeholder="Type in name of city">
                         </div>
 
                         <!-- Departure date -->
                         <div class="input-field">
                             <p>Departure date:</p>
-                            <input type="text" value="" placeholder="Type in date in format dd/mm/yyyy...">
+                            <div class="calendar-container">
+                                <i class="fa fa-calendar"></i>
+                                <input type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                            </div>
                         </div>
 
                         <!-- Return date -->
                         <div class="input-field">
                             <p>Return date:</p>
-                            <input type="text" value="" placeholder="Type in date in format dd/mm/yyyy...">
+                            <div class="calendar-container">
+                                <i class="fa fa-calendar"></i>
+                                <input type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                            </div>
                         </div>
 
                         <!-- Submit button -->
@@ -61,6 +68,16 @@
                         </div>
                     </form>
                 </section>
+            </section>
+
+
+            <!-- Results section -->
+            <section class="results-section">
+                <div class="results-placeholder">
+                    <p>Upon submission your results will be displayed here . . .</p>
+                    <i class="fa fa-globe"></i>
+                </div>
+
             </section>
         </main>
 
