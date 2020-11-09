@@ -20,6 +20,8 @@ $mainTextColor: black;
 $h1Color: #251e2a;
 $h2Color: #334663;
 $footerTextColor: #736677;
+$invalidInput:  #c5617a;
+$invalidInputLighter:  #f1c9d3;
 
 
 main {
@@ -75,6 +77,17 @@ form {
             font-size: 0.7em;
             padding: 0.2em;
             border: 3px solid $mainBackgroundDarker;
+            border-radius: 0.5em;
+
+            &:hover {
+                background-color: $blueGrey;
+            }
+        }
+
+        // !!! BROWSER EVENT IF VALIDATION FAILS set class to invalid
+        input.invalid {
+            border-color: $invalidInput;
+            background-color: $invalidInputLighter;
         }
 
         .fa-calendar {
@@ -140,6 +153,10 @@ form {
 
         p, i {
             padding: 80px 0px 0px 0px;
+            
+            &.invalid {
+                color: $invalidInput;
+            }
         }
 
         i {
@@ -150,6 +167,12 @@ form {
 }
 
 // --------- Results if input was invalid
+// .incorrect-input {
+//     & p, & i {
+//         color: $invalidInput;
+//     }
+// }
+
 
 // --------- Correct results
 

@@ -39,7 +39,7 @@
                         <!-- Location -->
                         <div class="input-field">
                             <p>Location:</p>
-                            <input type="text" value="" placeholder="Type in name of city">
+                            <input class="valid" type="text" value="" placeholder="Type in name of city">
                         </div>
 
                         <!-- Departure date -->
@@ -47,7 +47,7 @@
                             <p>Departure date:</p>
                             <div class="calendar-container">
                                 <i class="fa fa-calendar"></i>
-                                <input type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                                <input class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                             <p>Return date:</p>
                             <div class="calendar-container">
                                 <i class="fa fa-calendar"></i>
-                                <input type="text" value="" placeholder="Date in format dd/mm/yyyy">
+                                <input class="valid" type="text" value="" placeholder="Date in format dd/mm/yyyy">
                             </div>
                         </div>
 
@@ -73,10 +73,17 @@
 
             <!-- Results section -->
             <section class="results-section">
+                <!-- If the input fails validation, then update the below classes to 'invalid' and reset the innerHTML -->
                 <div class="results-placeholder">
-                    <p>Upon submission your results will be displayed here . . .</p>
-                    <i class="fa fa-globe"></i>
+                    <p class="valid">Upon submission your results will be displayed here . . .</p>
+                    <i class="valid fa fa-globe"></i>
                 </div>
+
+                <!--  How it should look like -->
+                <!-- <div class="results-placeholder">
+                    <p class="invalid">The input you have provided is invalid, please try again . . .</p>
+                    <i class="invalid fa fa-globe"></i>
+                </div> -->
 
             </section>
         </main>
