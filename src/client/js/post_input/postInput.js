@@ -1,6 +1,7 @@
 const postInput = async (url="", userInput = {}) => {
     try {
-        console.log(userInput);
+        // console.log(`::: 3) Log the user inputs from (postInput client side) :::`);
+        // console.log(userInput);
         const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -8,15 +9,14 @@ const postInput = async (url="", userInput = {}) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userInput),
+            body: JSON.stringify(userInput)
         });
 
-        console.log(response.json());
-        // if (response.ok) {
-        //     const JSONresponse = await response.json();
-        //     console.log(JSONresponse);
-        //     return JSONresponse;
-        // }
+        if (response.ok) {
+            const JSONresponse = await response.json();
+            console.log(JSONresponse);
+            return JSONresponse;
+        }
     }
     
     catch(error) {

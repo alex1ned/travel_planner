@@ -8,10 +8,8 @@ const handleSubmit = (event) => {
     // Validate inputs and store them
     let  userInputs = Client.validateForm();
     
-    // If inputs are valid .. send the information to the api
+    // If inputs are valid .. send the information to the server from where it goes to the APIs
     if (userInputs.isValid) {
-        console.log(`::: 2) ${userInputs} :::`);
-        console.log(userInputs);
         Client.postInput('http://localhost:8081/postingUserInputs', userInputs);
     }
 };
