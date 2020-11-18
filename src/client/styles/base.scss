@@ -29,6 +29,18 @@ $footerTextColor: #736677;
     line-height: 1.2em;
 }
 
+button, a {
+    &:hover {
+        cursor: pointer;
+    }
+
+    input {
+        &:hover {
+            cursor: inherit;
+        }
+    }
+}
+
 body {
     background-color: $mainBackgroundLighter;
 }

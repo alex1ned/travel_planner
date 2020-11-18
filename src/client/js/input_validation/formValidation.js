@@ -1,10 +1,101 @@
+const convertDateToInts = (aDate) => {
+    let theDate = aDate.split("/");
+    let datesAsInts = [];
+  
+    for (let i = 0; i < theDate.length; i++) {
+      datesAsInts[i] = parseInt(theDate[i]);
+    }
+    console.log(datesAsInts);
+    return datesAsInts;
+};
+
+const validateDate = (aDate) => {
+    let isValid = true;
+
+    if (aDate[1] === 4 || aDate[1] === 6 || aDate[1] === 9 || aDate[1] === 11) {
+        if (aDate[0] <= 0 || aDate[0] > 30) {
+        isValid = false;
+        }
+    }
+
+    else if (aDate[1] === 2 && (aDate[2] % 4) != 0) {
+        if (aDate[0] <= 0 || aDate[0] > 28) {
+        isValid = false;
+        }
+    }
+
+    else if (aDate[1] === 2 && (aDate[2] % 4) === 0) {
+        if (aDate[0] <= 0 || aDate[0] > 29) {
+        isValid = false;
+        }
+    }
+
+    else if (aDate[0] <= 0 || aDate[0] > 31) {
+        isValid = false;
+    }
+
+    else if (aDate[1] <= 0 || aDate[1] > 12) {
+        isValid = false;
+    }
+
+    else if (aDate[2] <= 0) {
+        isValid = false;
+    }
+    console.log(isValid);
+    return isValid;
+};
+
+const convertDateToString = (aDate) => {
+    let newDate = [];
+    for (let i = aDate.length-1; i >= 0; i--) {
+        newDate.push(aDate[i]);
+    }
+    let theDate = newDate.join('-');
+    return theDate;
+};
+
+const isDateWithinWeek = (aDate) => {
+    let withinWeek = false;
+    const today = new Date();
+    const departureDate = new Date(convertDateToString(convertDateToInts(aDate)));
+
+    const diffInTime = departureDate.getTime() - today.getTime();
+    const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24))
+
+    if (departureDate > today && diffInDays < 7) {
+        withinWeek = true;
+    }
+    return withinWeek;
+};
+  
+const isDateInFuture = (aDate) => {
+    let inFuture = true;
+    const today = new Date();
+    const departureDate = new Date(convertDateToString(convertDateToInts(aDate)));
+
+    if (departureDate < today) {
+        inFuture = false;
+    }
+    console.log(inFuture);
+    return inFuture;
+};
+
+
 const dateValidation = (dateString) => {
     let isValid = true;
     const correctPattern = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
-    // console.log(correctPattern.test(dateString));
     if (dateString === '' || dateString === null || !correctPattern.test(dateString)) {
         isValid = false;
     }
+
+    if (!validateDate(convertDateToInts(dateString))) {
+        isValid = false;
+    }
+
+    if (!isDateInFuture(dateString)) {
+        isValid = false;
+    }
+
     return isValid;
 };
 
@@ -59,14 +150,28 @@ const validateForm = () => {
         isValid = false;
     }
     
-    const infoForApi = {
-        isValid: isValid,
-        location: location,
-        departureDate: departureDate,
-        returnDate: returnDate
-    };
-    
-    return infoForApi;
+    if (isValid) {
+        const depDateForAPI = convertDateToString(convertDateToInts(departureDate));
+        const retDateForAPI = convertDateToString(convertDateToInts(returnDate));
+
+        const departureWithinWeek = isDateWithinWeek(departureDate);
+
+        const infoForApi = {
+            isValid: isValid,
+            location: location,
+            departureDate: departureDate,
+            returnDate: returnDate,
+            depDateForAPI: depDateForAPI,
+            retDateForAPI: retDateForAPI,
+            departureWithinWeek: departureWithinWeek
+        };
+        
+        return infoForApi;
+    }
+
+    else {
+        return "ERROR: Input invalid!";
+    }
 };
 
 

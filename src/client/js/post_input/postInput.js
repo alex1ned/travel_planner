@@ -11,7 +11,7 @@ const postInput = async (url="", userInput = {}) => {
             },
             body: JSON.stringify(userInput)
         });
-
+        
         if (response.ok) {
             const JSONresponse = await response.json();
             console.log(JSONresponse);
