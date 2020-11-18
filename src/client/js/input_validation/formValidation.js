@@ -5,7 +5,6 @@ const convertDateToInts = (aDate) => {
     for (let i = 0; i < theDate.length; i++) {
       datesAsInts[i] = parseInt(theDate[i]);
     }
-    console.log(datesAsInts);
     return datesAsInts;
 };
 
@@ -41,7 +40,6 @@ const validateDate = (aDate) => {
     else if (aDate[2] <= 0) {
         isValid = false;
     }
-    console.log(isValid);
     return isValid;
 };
 
@@ -85,10 +83,36 @@ const isDateInFuture = (aDate) => {
     if (departureDate < today) {
         inFuture = false;
     }
-    console.log(inFuture);
     return inFuture;
 };
 
+const getDateMinus1Year = (aDate) => {
+    const dateMinus1 = new Date(convertDateToString(convertDateToInts(aDate)));
+    const today = new Date();
+
+    const diffInTime = dateMinus1.getTime() - today.getTime();
+    const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+    const diffInYears = Math.ceil(diffInDays/365);
+    
+
+    dateMinus1.setFullYear(dateMinus1.getFullYear() - diffInYears);
+    const dateString = dateMinus1.getFullYear() + "-" + (dateMinus1.getMonth() + 1) + "-" + dateMinus1.getDate();
+    return dateString;
+};
+
+const getDatePlus1 = (aDate) => {
+    const datePlus1 = new Date(convertDateToString(convertDateToInts(aDate)));
+    const today = new Date();
+    const diffInTime = datePlus1.getTime() - today.getTime();
+    const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+    const diffInYears = Math.ceil(diffInDays/365);
+
+    datePlus1.setDate(datePlus1.getDate() + 1);
+    datePlus1.setFullYear(datePlus1.getFullYear() - diffInYears);
+    const datePlus1String = datePlus1.getFullYear() + "-" + (datePlus1.getMonth() + 1) + "-" + datePlus1.getDate();
+
+    return datePlus1String;
+};
 
 const dateValidation = (dateString) => {
     let isValid = true;
@@ -160,10 +184,13 @@ const validateForm = () => {
     }
     
     if (isValid) {
-        const depDateForAPI = convertDateToString(convertDateToInts(departureDate));
+        // const depDateForAPI = convertDateToString(convertDateToInts(departureDate));
+        const depDateForAPI = getDateMinus1Year(departureDate);
         const retDateForAPI = convertDateToString(convertDateToInts(returnDate));
         const departureWithinWeek = isDateWithinWeek(departureDate);
         const dateIndex = dateIndexForApi(departureDate);
+        const departureDatePlus1 = getDatePlus1(departureDate);
+
 
         const infoForApi = {
             isValid: isValid,
@@ -173,7 +200,8 @@ const validateForm = () => {
             depDateForAPI: depDateForAPI,
             retDateForAPI: retDateForAPI,
             departureWithinWeek: departureWithinWeek,
-            dateIndex: dateIndex
+            dateIndex: dateIndex,
+            departureDatePlus1: departureDatePlus1
         };
         
         return infoForApi;

@@ -1,12 +1,37 @@
 // -------------------------------------- GLOABL VARIABLES
 const PORT = 8081;
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const geoNamesApi = {
+    baseURL: 'http://api.geonames.org/searchJSON?q=',
+    username: process.env.GEONAMES_API_USERNAME
+};
+
+const weatherBitApi = {
+    baseURL: "http://api.weatherbit.io/v2.0/forecast/daily?key=",
+    averageBaseUrl: "http://api.weatherbit.io/v2.0/history/daily?key=",
+    apiKey: process.env.WEATHERBIT_API_KEY
+};
+
+const pixabyApi = {
+    baseURL: "https://pixabay.com/api/?key=",
+    apiKey: process.env.PIXABAY_API_KEY
+};
+
+
 
 // -------------------------------------- IMPORTS
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
+const getDataFromGeoNames = require('./apis/geonames.js');
+const getWeather = require('./apis/weatherbit_v1.js');
+const getAverageWeather = require('./apis/weatherbit_v2.js');
+const getImages = require('./apis/pixabay.js');
 
 
 // -------------------------------------- INITIATE SERVER
@@ -28,19 +53,29 @@ app.listen(PORT, function () {
 
 // -------------------------------------- SERVER ROUTES
 const postingUserInputs = async (req, res) => {
-    console.log("::: POSTING to server works :::");
     const receivedInput = req.body;
 
     if (receivedInput) {
-        // Here receivedInput is an object: {location: "some-string", isValid: true o false, departureDate: "dd/mm/yyy", returnDate: "dd/mm/yyy"}
-        // - Code here: call three APIs
+        const latLng = await getDataFromGeoNames(geoNamesApi.baseURL, geoNamesApi.username, receivedInput.location);
         
-        const textToAnalyse = receivedInput.location;
-        let analysis = {location: textToAnalyse};
-        // Call APIs here
-        // const apiResponse = await getSentiment(urlToAPI, textToAnalyse, modelType);                
-        // let analysis = transposeAPIresponse(apiResponse);
-        res.status(201).send(analysis);
+        let weatherData = {};
+        
+        if (receivedInput.departureWithinWeek) {
+            weatherData = await getWeather(weatherBitApi.baseURL, weatherBitApi.apiKey, latLng.latitude, latLng.longitude, receivedInput.dateIndex);
+        }
+        
+        else {
+            weatherData = await getAverageWeather(weatherBitApi.averageBaseUrl, weatherBitApi.apiKey, latLng.latitude, latLng.longitude, receivedInput.depDateForAPI, receivedInput.departureDatePlus1, receivedInput.dateIndex);
+        }
+
+        const imageData = await getImages(pixabyApi.baseURL, pixabyApi.apiKey, receivedInput.location);
+        
+        let apiData = {
+            withinWeek: receivedInput.departureWithinWeek,
+            weather: weatherData,
+            images: imageData
+        };
+        res.status(201).send(apiData);
     }
     else {
         res.status(400).send();

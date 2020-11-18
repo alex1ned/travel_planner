@@ -1,7 +1,5 @@
 const postInput = async (url="", userInput = {}) => {
     try {
-        // console.log(`::: 3) Log the user inputs from (postInput client side) :::`);
-        // console.log(userInput);
         const response = await fetch(url, {
             method: 'POST',
             mode: 'cors',
@@ -15,6 +13,8 @@ const postInput = async (url="", userInput = {}) => {
         if (response.ok) {
             const JSONresponse = await response.json();
             console.log(JSONresponse);
+            // !!! CODER HERE: getting the data from API works
+
             return JSONresponse;
         }
     }

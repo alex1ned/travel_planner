@@ -7,35 +7,12 @@ const handleSubmit = (event) => {
 
     // Validate inputs and store them
     let  userInputs = Client.validateForm();
-    
+
     // If inputs are valid .. send the information to the server from where it goes to the APIs
     if (userInputs.isValid) {
         Client.postInput('http://localhost:8081/postingUserInputs', userInputs);
     }
 };
 
-
-
-
-
-
-
-// const submitButton = document.querySelector('.submit-button');
-
-// TEMPLATE FUNCTION (needs to be changed)
-// OLD
-// function handleSubmit(event) {
-//     event.preventDefault()
-
-//     // check what text was put into the form field
-//     let formText = document.getElementById('name').value
-//     Client.checkForName(formText)
-
-//     fetch('http://localhost:8080/test')
-//     .then(res => res.json())
-//     .then(function(res) {
-//         document.getElementById('results').innerHTML = res.message
-//     })
-// }
 
 export { handleSubmit }
