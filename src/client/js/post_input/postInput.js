@@ -12,9 +12,6 @@ const postInput = async (url="", userInput = {}) => {
         
         if (response.ok) {
             const JSONresponse = await response.json();
-            console.log(JSONresponse);
-            // !!! CODER HERE: getting the data from API works
-
             return JSONresponse;
         }
     }

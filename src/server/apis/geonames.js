@@ -21,7 +21,3 @@ const getDataFromGeoNames = async (baseURL, username, city) => {
 };
 
 module.exports = getDataFromGeoNames;
-
-
-// WEATHERBIT_API_KEY=efd8953ee8434ec0b2978bfaf392aefa
-// PIXABAY_API_KEY=18971010-18d7e31e820fe95309e7bc93a
