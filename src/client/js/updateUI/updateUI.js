@@ -85,7 +85,7 @@ const updateUI = (apiData) => {
         // ------------ Weather Icon
         const weatherIcon = document.createElement("img");
         weatherIcon.classList.add("weather-element");
-        weatherIcon.src = `./src/client/media/icons/${apiData.weather.icon}`
+        weatherIcon.src = `./src/client/media/icons/${apiData.weather.icon}.png`
         weatherDataContainer.appendChild(weatherIcon);
     }
     
