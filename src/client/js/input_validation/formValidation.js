@@ -67,6 +67,15 @@ const isDateWithinWeek = (aDate) => {
     }
     return withinWeek;
 };
+
+const dateIndexForApi = (aDate) => {
+    const today = new Date();
+    const departureDate = new Date(convertDateToString(convertDateToInts(aDate)));
+
+    const diffInTime = departureDate.getTime() - today.getTime();
+    const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+    return diffInDays;
+}
   
 const isDateInFuture = (aDate) => {
     let inFuture = true;
@@ -153,8 +162,8 @@ const validateForm = () => {
     if (isValid) {
         const depDateForAPI = convertDateToString(convertDateToInts(departureDate));
         const retDateForAPI = convertDateToString(convertDateToInts(returnDate));
-
         const departureWithinWeek = isDateWithinWeek(departureDate);
+        const dateIndex = dateIndexForApi(departureDate);
 
         const infoForApi = {
             isValid: isValid,
@@ -163,7 +172,8 @@ const validateForm = () => {
             returnDate: returnDate,
             depDateForAPI: depDateForAPI,
             retDateForAPI: retDateForAPI,
-            departureWithinWeek: departureWithinWeek
+            departureWithinWeek: departureWithinWeek,
+            dateIndex: dateIndex
         };
         
         return infoForApi;
