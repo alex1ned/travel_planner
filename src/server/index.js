@@ -72,6 +72,7 @@ const postingUserInputs = async (req, res) => {
         
         let apiData = {
             withinWeek: receivedInput.departureWithinWeek,
+            location: receivedInput.location,
             weather: weatherData,
             images: imageData
         };

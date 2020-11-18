@@ -3,7 +3,7 @@ import { postInput } from "./post_input/postInput.js";
 import { updateUI } from "./updateUI/updateUI.js";
 
 const handleSubmit = async(event) => {
-    console.log("::: 1) Handle submit is processed :::");
+    console.log("::: Handle submit is processed :::");
     event.preventDefault();
 
     // Validate inputs and store them
