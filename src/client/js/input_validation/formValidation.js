@@ -74,6 +74,15 @@ const dateIndexForApi = (aDate) => {
     const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
     return diffInDays;
 }
+
+const dateDifference = (aDate, bDate) => {
+    const departureDate = new Date(convertDateToString(convertDateToInts(aDate)));
+    const returnDate = new Date(convertDateToString(convertDateToInts(bDate)));
+
+    const diffInTime = returnDate.getTime() - departureDate.getTime();
+    const diffInDays = Math.ceil(diffInTime / (1000 * 3600 * 24));
+    return diffInDays;
+}
   
 const isDateInFuture = (aDate) => {
     let inFuture = true;
@@ -190,7 +199,7 @@ const validateForm = () => {
         const departureWithinWeek = isDateWithinWeek(departureDate);
         const dateIndex = dateIndexForApi(departureDate);
         const departureDatePlus1 = getDatePlus1(departureDate);
-
+        const durationOfHoliday = dateDifference(departureDate, returnDate);
 
         const infoForApi = {
             isValid: isValid,
@@ -201,7 +210,8 @@ const validateForm = () => {
             retDateForAPI: retDateForAPI,
             departureWithinWeek: departureWithinWeek,
             dateIndex: dateIndex,
-            departureDatePlus1: departureDatePlus1
+            departureDatePlus1: departureDatePlus1,
+            durationOfHoliday: durationOfHoliday
         };
         
         return infoForApi;

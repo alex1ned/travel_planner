@@ -27,7 +27,7 @@ $invalidInputLighter:  #f1c9d3;
 main {
     color: $mainTextColor;
     padding: 30px;
-    height: 80vh;
+    height: 90vh;
 }
 
 
@@ -37,7 +37,7 @@ main {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     border-bottom: 3px solid $h2Color;
 
     .sections-upper {
@@ -58,8 +58,9 @@ form {
 
     .input-field {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
+        margin-bottom: 5px;
 
         p, input, div {
             height: 30px;
@@ -73,33 +74,28 @@ form {
         }
 
         input {
-            min-width: 300px;
+            min-width: 100%;
             font-size: 0.7em;
             padding: 0.2em;
             border: 3px solid $mainBackgroundDarker;
             border-radius: 0.5em;
+            margin-top: 2px;
 
             &:hover {
                 background-color: $blueGrey;
             }
         }
 
-        // !!! BROWSER EVENT IF VALIDATION FAILS set class to invalid
         input.invalid {
             border-color: $invalidInput;
             background-color: $invalidInputLighter;
         }
-
-        .fa-calendar {
-            margin-right: 7px;
-            font-size: 1.0em;
-        }
-
     }
 
     .submit-button {
         display: flex;
         justify-content: center;
+        margin-top: 20px;
 
         input.submit {
             background-color: inherit;
@@ -131,6 +127,13 @@ form {
     }
 }
 
+@media only screen and (max-width: 500px) {
+    .input-field input {
+        width: 100px !important;
+        border: 1px solid red;
+    }
+}
+
 
 
 // --------------------------------- LOWER SEGMENT (RESULTS)
@@ -153,6 +156,7 @@ form {
 
         p, i {
             padding: 80px 0px 0px 0px;
+            line-height: 1.2em;
             
             &.invalid {
                 color: $invalidInput;
@@ -162,18 +166,35 @@ form {
         i {
             font-size: 1.9em;
         }
-
     }
 }
 
-// --------- Results if input was invalid
-// .incorrect-input {
-//     & p, & i {
-//         color: $invalidInput;
-//     }
-// }
+@media only screen and (max-width: 870px) {
+    main {
+        height: 200vh;
+    }
 
+    .results-section {
+        min-height: 400px;
+        .results-placeholder {
+            p, i {
+                padding: 0px 0px 0px 0px;
+            }
+        }
+    }
+}
 
-// --------- Correct results
+@media only screen and (max-width: 600px) {
+    main {
+        height: 250vh;
+    }
 
-
+    .results-section {
+        min-height: 500px;
+        .results-placeholder {
+            p, i {
+                padding: 0px 0px 0px 0px;
+            }
+        }
+    }
+}

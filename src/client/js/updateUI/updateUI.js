@@ -26,9 +26,6 @@ function collapseContent(elementToCollapse) {
 
 
 const updateUI = (apiData) => {
-    console.log("::: In UPDATE UI Function :::");
-    console.log(apiData);
-
     const results = document.querySelector('div.results');
     const resultsPlaceholder = document.querySelector('div.results-placeholder');
     
@@ -82,6 +79,12 @@ const updateUI = (apiData) => {
         weatherDescription.innerHTML = `Weather can be described as: ${apiData.weather.description}`;
         weatherDataContainer.appendChild(weatherDescription);
 
+        // ------------ Duration of Holiday
+        const holidayDuration = document.createElement("div");
+        holidayDuration.classList.add("weather-element");
+        holidayDuration.innerHTML = `The duration of your holiday is ${apiData.duration} days, have fun!`;
+        weatherDataContainer.appendChild(holidayDuration);
+
         // ------------ Weather Icon
         const weatherIcon = document.createElement("img");
         weatherIcon.classList.add("weather-element");
@@ -116,6 +119,12 @@ const updateUI = (apiData) => {
         cloudCoverage.classList.add("weather-element");
         cloudCoverage.innerHTML = `Cloud coverage was ${apiData.weather.cloudCoverage}%`;
         weatherDataContainer.appendChild(cloudCoverage);
+
+        // ------------ Duration of Holiday
+        const holidayDuration = document.createElement("div");
+        holidayDuration.classList.add("weather-element");
+        holidayDuration.innerHTML = `The duration of your holiday is ${apiData.duration} days, have fun!`;
+        weatherDataContainer.appendChild(holidayDuration);
     }
 };
 
