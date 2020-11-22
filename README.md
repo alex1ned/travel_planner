@@ -6,7 +6,6 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
@@ -17,16 +16,47 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This project builds a single page website where the user can input a location as well as a departure- and return date for an upcomign journey. Upon submission the user will be displayed the length of the stay, a picture of the destination, as well as a weather forecast. Please note that if the departure date is within the next week the user will be displayed an exact weather forecast as serviced by the weatherbit API. If, however, the departure date is more than one week from today, the user will be displayed the past weather of that day and month one year ago. This is serves as a proxy for what a typical weather may be around the date of departure of the specific location.
+
+The interface is displayed below.
+
+![AnImage](./readme_images/webpage.png)
 
 
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This project has been built using the following frameworks, plugins, and APIs.
 
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+#####Frameworks
+
+* [Webpack](https://webpack.js.org)
+
+#####Plugins / Dependencies
+
+* [babel/core](https://babeljs.io/docs/en/babel-core)
+* [babel/polyfill](https://babeljs.io/docs/en/babel-polyfill)
+* [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env)
+* [babel-loader](https://www.npmjs.com/package/babel-loader/v/8.0.0-beta.1)
+* [css-webpack-plugon](https://www.npmjs.com/package/clean-webpack-plugin)
+* [css-loader](https://webpack.js.org/loaders/css-loader/)
+* [file-loader](https://webpack.js.org/loaders/file-loader/)
+* [html-webpack-plugin](https://webpack.js.org/plugins/html-webpack-plugin/)
+* [jest](https://jestjs.io)
+* [mini-css-extract-plugin](https://webpack.js.org/plugins/mini-css-extract-plugin/)
+* [jest](https://jestjs.io)
+* [node-sass](https://www.npmjs.com/package/node-sass)
+* [optimize-css-assets-webpack-plugin](https://www.npmjs.com/package/optimize-css-assets-webpack-plugin)
+* [sass-loader](https://webpack.js.org/loaders/sass-loader/)
+* [style-loader](https://www.npmjs.com/package/style-loader)
+* [terser-webpack-plugin](https://webpack.js.org/plugins/terser-webpack-plugin/)
+* [webpack-dev-server](https://webpack.js.org/configuration/dev-server/)
+* [workbox-webpack-plugin](https://www.npmjs.com/package/workbox-webpack-plugin)
+
+#####APIs
+
+* [Geonames](http://www.geonames.org)
+* [Weatherbit](https://www.weatherbit.io)
+* [Pixabay](https://pixabay.com)
 
 
 
@@ -46,28 +76,26 @@ npm install npm@latest -g
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-```sh
-git clone https://github.com/your_username_/Project-Name.git
+
+1. Clone the repo
 ```
-3. Install NPM packages
-```sh
+git clone https://github.com/alex1ned/travel_planner.git
+```
+2. Install NPM packages
+```
 npm install
 ```
-4. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
+3. Get a free API credential from
+	* [http://www.geonames.org](http://www.geonames.org)
+	* [https://www.weatherbit.io](https://www.weatherbit.io)
+	* [https://pixabay.com](https://pixabay.com)
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-
+4. In root folder create a new file called `.env`
+5. In the file enter your credentials in the following way:
+	* `GEONAMES_API_USERNAME=<your username>`
+	* `WEATHERBIT_API_KEY=<your api key>`
+	* `PIXABAY_API_KEY=<your api key>`
+6. In the file `.gitignore` add the `.env` file name. This ensures that if you publish your project on github, that your api credentials will not be published on github and are not visible to anyone who may clone or view your project.
 
 
 <!-- CONTRIBUTING -->
@@ -83,8 +111,9 @@ Any contributions you make are **greatly appreciated**.
 
 Suggestions for possible **features to add** (w/o order of relevance):
 
-* A
-* B
+* Add a clear button that resets the user interface.
+* Add button that allows user to add another trip which will be displayed below the inital one.
+* Allow user to add multiple destinations for the trip.
 
 <!-- LICENSE -->
 ## License
