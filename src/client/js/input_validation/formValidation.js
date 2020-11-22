@@ -193,7 +193,6 @@ const validateForm = () => {
     }
     
     if (isValid) {
-        // const depDateForAPI = convertDateToString(convertDateToInts(departureDate));
         const depDateForAPI = getDateMinus1Year(departureDate);
         const retDateForAPI = convertDateToString(convertDateToInts(returnDate));
         const departureWithinWeek = isDateWithinWeek(departureDate);

@@ -34,7 +34,6 @@
                 <!-- Section 2 -- Submission Form -->
                 <section id="submission" class="sections-upper">
                     <h2>Submission Form</h2>
-                    <!-- !!! Add form here (Location, start date, return date) -->
                     <form onsubmit="return Client.handleSubmit(event)">
                         <!-- Location -->
                         <div class="input-field">
@@ -78,13 +77,6 @@
                     <p class="valid">Upon submission your results will be displayed here . . .</p>
                     <i class="valid fa fa-globe"></i>
                 </div>
-
-                <!--  How it should look like -->
-                <!-- <div class="results-placeholder">
-                    <p class="invalid">The input you have provided is invalid, please try again . . .</p>
-                    <i class="invalid fa fa-globe"></i>
-                </div> -->
-
                 <div class=results-container>
                     <div class="results">
 
@@ -97,12 +89,17 @@
         <footer>
             <div>&copy 2020 Alexander Nederegger   |   Udacity Front-End Development | Capstone Project</div>
         </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+       </script>
     </body>
 </html>
 
 
-<!-- *********** !!! OLD EVENT HANDLER TEMPLATE -->
-<!-- <form class="" onsubmit="return handleSubmit(event)">
-    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
-</form> -->
+
